@@ -1,5 +1,5 @@
 
-Map of Debug\test.sm8 from link file Debug\test.lkf - Mon Feb  8 10:22:29 2021
+Map of Debug\test.sm8 from link file Debug\test.lkf - Mon Feb  8 10:44:57 2021
 
 
                                --------
@@ -32,21 +32,21 @@ start 00000100 end 00000100 length     0 section .bss
 start 00000001 end 00000001 length     0 section .ubsct
 start 00000000 end 00000034 length    52 section .info.
 
-Debug\clock.o:
-start 000080e5 end 00008164 length   127 section .text
-start 00000000 end 00000557 length  1367 section .debug
-start 00000034 end 0000009f length   107 section .info.
+Debug\stm8s_gpio.o:
+start 000080e5 end 00008197 length   178 section .text
+start 00000000 end 00000a0a length  2570 section .debug
+start 00000034 end 000000a4 length   112 section .info.
 
 Debug\stm8s_clk.o:
-start 00008164 end 000084e8 length   900 section .text
-start 00000557 end 00001bc6 length  5743 section .debug
-start 0000009f end 0000010e length   111 section .info.
+start 00008197 end 0000851b length   900 section .text
+start 00000a0a end 00002079 length  5743 section .debug
+start 000000a4 end 00000113 length   111 section .info.
 start 00008080 end 0000808c length    12 section .const
 
-Debug\stm8s_gpio.o:
-start 000084e8 end 0000859a length   178 section .text
-start 00001bc6 end 000025d0 length  2570 section .debug
-start 0000010e end 0000017e length   112 section .info.
+Debug\clock.o:
+start 0000851b end 0000859a length   127 section .text
+start 00002079 end 000025d0 length  1367 section .debug
+start 00000113 end 0000017e length   107 section .info.
 
 Debug\main.o:
 start 0000859a end 000085e8 length    78 section .text
@@ -264,60 +264,60 @@ Stack size: 31
                                -------
 
 _CLKPrescTable                   00008084   defined in Debug\stm8s_clk.o section .const
-_CLK_AdjustHSICalibrationValue   0000843e   defined in Debug\stm8s_clk.o section .text
-_CLK_CCOCmd                      000081d4   defined in Debug\stm8s_clk.o section .text
+_CLK_AdjustHSICalibrationValue   00008471   defined in Debug\stm8s_clk.o section .text
+_CLK_CCOCmd                      00008207   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_CCOConfig                   00008337   defined in Debug\stm8s_clk.o section .text
+_CLK_CCOConfig                   0000836a   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_ClearITPendingBit           000084d9   defined in Debug\stm8s_clk.o section .text
-_CLK_ClockSecuritySystemEnable   000083c1   defined in Debug\stm8s_clk.o section .text
-_CLK_ClockSwitchCmd              000081e2   defined in Debug\stm8s_clk.o section .text
+_CLK_ClearITPendingBit           0000850c   defined in Debug\stm8s_clk.o section .text
+_CLK_ClockSecuritySystemEnable   000083f4   defined in Debug\stm8s_clk.o section .text
+_CLK_ClockSwitchCmd              00008215   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_ClockSwitchConfig           0000826a   defined in Debug\stm8s_clk.o section .text
+_CLK_ClockSwitchConfig           0000829d   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_DeInit                      00008164   defined in Debug\stm8s_clk.o section .text
+_CLK_DeInit                      00008197   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_FastHaltWakeUpCmd           0000819c   defined in Debug\stm8s_clk.o section .text
-_CLK_GetClockFreq                000083ca   defined in Debug\stm8s_clk.o section .text
-_CLK_GetFlagStatus               00008450   defined in Debug\stm8s_clk.o section .text
+_CLK_FastHaltWakeUpCmd           000081cf   defined in Debug\stm8s_clk.o section .text
+_CLK_GetClockFreq                000083fd   defined in Debug\stm8s_clk.o section .text
+_CLK_GetFlagStatus               00008483   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_GetITStatus                 000084ad   defined in Debug\stm8s_clk.o section .text
-_CLK_GetSYSCLKSource             000083c6   defined in Debug\stm8s_clk.o section .text
-_CLK_HSECmd                      000081aa   defined in Debug\stm8s_clk.o section .text
+_CLK_GetITStatus                 000084e0   defined in Debug\stm8s_clk.o section .text
+_CLK_GetSYSCLKSource             000083f9   defined in Debug\stm8s_clk.o section .text
+_CLK_HSECmd                      000081dd   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_HSICmd                      000081b8   defined in Debug\stm8s_clk.o section .text
+_CLK_HSICmd                      000081eb   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_HSIPrescalerConfig          00008324   defined in Debug\stm8s_clk.o section .text
+_CLK_HSIPrescalerConfig          00008357   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_ITConfig                    0000834e   defined in Debug\stm8s_clk.o section .text
-_CLK_LSICmd                      000081c6   defined in Debug\stm8s_clk.o section .text
+_CLK_ITConfig                    00008381   defined in Debug\stm8s_clk.o section .text
+_CLK_LSICmd                      000081f9   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_PeripheralClockConfig       000081fe   defined in Debug\stm8s_clk.o section .text
+_CLK_PeripheralClockConfig       00008231   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_SWIMConfig                  000083b3   defined in Debug\stm8s_clk.o section .text
-_CLK_SYSCLKConfig                00008386   defined in Debug\stm8s_clk.o section .text
+_CLK_SWIMConfig                  000083e6   defined in Debug\stm8s_clk.o section .text
+_CLK_SYSCLKConfig                000083b9   defined in Debug\stm8s_clk.o section .text
                                             used in Debug\clock.o
-_CLK_SYSCLKEmergencyClear        0000844b   defined in Debug\stm8s_clk.o section .text
-_CLK_SlowActiveHaltWakeUpCmd     000081f0   defined in Debug\stm8s_clk.o section .text
-_Clock_HSI_Init                  000080e5   defined in Debug\clock.o section .text
+_CLK_SYSCLKEmergencyClear        0000847e   defined in Debug\stm8s_clk.o section .text
+_CLK_SlowActiveHaltWakeUpCmd     00008223   defined in Debug\stm8s_clk.o section .text
+_Clock_HSI_Init                  0000851b   defined in Debug\clock.o section .text
                                             used in Debug\main.o
-_DisableAllPeripherals           0000811d   defined in Debug\clock.o section .text
-_EnableClockMirror               0000814c   defined in Debug\clock.o section .text
+_DisableAllPeripherals           00008553   defined in Debug\clock.o section .text
+_EnableClockMirror               00008582   defined in Debug\clock.o section .text
                                             used in Debug\main.o
-_GPIO_DeInit                     000084e8   defined in Debug\stm8s_gpio.o section .text
+_GPIO_DeInit                     000080e5   defined in Debug\stm8s_gpio.o section .text
                                             used in Debug\main.o
-_GPIO_ExternalPullUpConfig       00008582   defined in Debug\stm8s_gpio.o section .text
-_GPIO_Init                       000084f0   defined in Debug\stm8s_gpio.o section .text
+_GPIO_ExternalPullUpConfig       0000817f   defined in Debug\stm8s_gpio.o section .text
+_GPIO_Init                       000080ed   defined in Debug\stm8s_gpio.o section .text
                                             used in Debug\clock.o Debug\main.o
-_GPIO_ReadInputData              00008578   defined in Debug\stm8s_gpio.o section .text
-_GPIO_ReadInputPin               0000857b   defined in Debug\stm8s_gpio.o section .text
-_GPIO_ReadOutputData             00008576   defined in Debug\stm8s_gpio.o section .text
-_GPIO_Write                      00008558   defined in Debug\stm8s_gpio.o section .text
-_GPIO_WriteHigh                  00008560   defined in Debug\stm8s_gpio.o section .text
+_GPIO_ReadInputData              00008175   defined in Debug\stm8s_gpio.o section .text
+_GPIO_ReadInputPin               00008178   defined in Debug\stm8s_gpio.o section .text
+_GPIO_ReadOutputData             00008173   defined in Debug\stm8s_gpio.o section .text
+_GPIO_Write                      00008155   defined in Debug\stm8s_gpio.o section .text
+_GPIO_WriteHigh                  0000815d   defined in Debug\stm8s_gpio.o section .text
                                             used in Debug\main.o
-_GPIO_WriteLow                   00008567   defined in Debug\stm8s_gpio.o section .text
+_GPIO_WriteLow                   00008164   defined in Debug\stm8s_gpio.o section .text
                                             used in Debug\main.o
-_GPIO_WriteReverse               0000856f   defined in Debug\stm8s_gpio.o section .text
+_GPIO_WriteReverse               0000816c   defined in Debug\stm8s_gpio.o section .text
 _HSIDivFactor                    00008080   defined in Debug\stm8s_clk.o section .const
 _LED                             ********   *** removed from Debug\main.o ***
 __endmem                         000001ff   defined in command file
