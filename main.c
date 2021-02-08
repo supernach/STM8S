@@ -3,41 +3,51 @@
  * Copyright (c) 2002-2005 STMicroelectronics
  */
 #include "stm8s.h"
+#include "main.h"
 #include "delay.h"
 #include "clock.h"
+#include "gpio.h"
 
-const uint8_t LED = GPIO_PIN_5;
-
-uint8_t onOFF = 1;
-
+sPin Led = { 
+						GPIOB, 
+						GPIO_PIN_5
+						};
+sPin Pulsador = { 
+									GPIOD, 
+									GPIO_PIN_5,
+									};
+sPin CCO = { 
+						GPIOC, 
+						GPIO_PIN_4,
+						};
+						
+void DeInitAllGPIO(void);
 
 
 main()
 {
-	GPIO_DeInit(GPIOB);
-	GPIO_DeInit(GPIOC);
+	DeInitAllGPIO();
 	
 	Clock_HSI_Init(CLK_PRESCALER_HSIDIV1, CLK_PRESCALER_CPUDIV16);
-	EnableClockMirror(CLK_OUTPUT_CPU);
+	EnableClockMirror(CLK_OUTPUT_CPU, CCO);
 	
+	Input_Init(Pulsador);
 	
-	
-	GPIO_Init(GPIOB, LED, GPIO_MODE_OUT_PP_HIGH_FAST);
+	Output2mhz_Init(Led);
 	
 	for(;;)
 	{
-		if(onOFF == 1) 
-		{
-			GPIO_WriteHigh(GPIOB, LED);
-			onOFF = 2;
-		}
-		else
-		{
-			GPIO_WriteLow(GPIOB, LED);
-			onOFF = 1;
-		}
+		if(IsActive(Pulsador)) Output_0(Led);
+		else Output_1(Led);
 		
-		_delay_cycl(1000000);
+		//_delay_cycl(1000000);
 	}
+}
+
+void DeInitAllGPIO(void)
+{
+	GPIO_DeInit(GPIOB);
+	GPIO_DeInit(GPIOC);
+	GPIO_DeInit(GPIOD);
 }
 

@@ -1,6 +1,7 @@
 
 #include "clock.h"
 
+
 void Clock_HSI_Init(CLK_Prescaler_TypeDef fHsi, CLK_Prescaler_TypeDef fCpu)
 {
 	CLK_DeInit();
@@ -35,9 +36,9 @@ void DisableAllPeripherals(void)
   CLK_PeripheralClockConfig(CLK_PERIPHERAL_TIMER4, DISABLE);
 }
 
-void EnableClockMirror(CLK_Output_TypeDef source)
+void EnableClockMirror(CLK_Output_TypeDef source, sPin pin)
 {
-	GPIO_Init(GPIOC, GPIO_PIN_4, GPIO_MODE_OUT_PP_LOW_FAST);
+	Output10mhz_Init(pin);
 	CLK_CCOConfig(source);
   CLK_CCOCmd(ENABLE);
   //while(CLK_GetFlagStatus(CLK_FLAG_CCORDY) == FALSE);
