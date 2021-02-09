@@ -1,6 +1,21 @@
 
 #include "gpio.h"
 
+sPin Led;
+sPin Pulsador;
+sPin CCO;
+
+void Pin_Init(void)
+{
+	Led.Puerto = GPIOB;
+	Led.Pin = GPIO_PIN_5;
+
+	Pulsador.Puerto = GPIOD;
+	Pulsador.Pin = GPIO_PIN_5;
+
+	CCO.Puerto = GPIOC;
+	CCO.Pin = GPIO_PIN_4;
+}
 
 void Input_Init(sPin input)
 {

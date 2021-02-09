@@ -2,8 +2,7 @@
 #define CLOCK_H
 
 #include "stm8s.h"
-#include "main.h"
-#include "gpio.h"
+#include "Gpio.h"
 
 void DisableAllPeripherals(void);
 void Clock_HSI_Init(CLK_Prescaler_TypeDef fHsi, CLK_Prescaler_TypeDef fCpu);
