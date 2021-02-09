@@ -16,14 +16,14 @@ main()
 	DeInitAllGPIO();
 	Pin_Init();
 	
-	Clock_HSI_Init(CLK_PRESCALER_HSIDIV1, CLK_PRESCALER_CPUDIV16);
-	//EnableClockMirror(CLK_OUTPUT_CPU, CCO);
+	Clock_HSI_Init(CLK_PRESCALER_HSIDIV1, CLK_PRESCALER_CPUDIV1);
+	EnableClockMirror(CLK_OUTPUT_CPU, CCO);
 	EXTI_setup();
 	
 	//Input_Init(Pulsador);
 	
 	Output2mhz_Init(Led);
-	Output_1(Led);
+	//Output_1(Led);
 	
 	for(;;)
 	{
@@ -49,7 +49,7 @@ void EXTI_setup(void)
     ITC_SetSoftwarePriority(ITC_IRQ_PORTD, ITC_PRIORITYLEVEL_0);
                 
     EXTI_DeInit();
-    EXTI_SetExtIntSensitivity(EXTI_PORT_GPIOD, EXTI_SENSITIVITY_FALL_ONLY);
+    EXTI_SetExtIntSensitivity(EXTI_PORT_GPIOD, EXTI_SENSITIVITY_RISE_FALL);
     EXTI_SetTLISensitivity(EXTI_TLISENSITIVITY_FALL_ONLY);
                 
     enableInterrupts();

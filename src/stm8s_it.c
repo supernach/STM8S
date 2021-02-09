@@ -159,7 +159,8 @@ INTERRUPT_HANDLER(EXTI_PORTD_IRQHandler, 6)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
-	Output_0(Led);
+	//Output_0(Led);
+	GPIO_WriteReverse(Led.Puerto, Led.Pin);
 	//GPIO_WriteHigh(Led.Puerto, Led.Pin);
 }
 
