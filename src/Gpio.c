@@ -22,6 +22,11 @@ void Input_Init(sPin input)
 	GPIO_Init(input.Puerto, input.Pin, GPIO_MODE_IN_PU_NO_IT);
 }
 
+void InputInt_Init(sPin input)
+{
+	GPIO_Init(input.Puerto, input.Pin, GPIO_MODE_IN_PU_IT);
+}
+
 void Output2mhz_Init(sPin output)
 {
 	GPIO_Init(output.Puerto, output.Pin, GPIO_MODE_OUT_PP_LOW_SLOW);

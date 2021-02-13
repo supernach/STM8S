@@ -3,6 +3,10 @@
 
 #include "stm8s.h"
 
+/**
+@brief La verdad esto es magia
+*/
+
 static @inline void _delay_cycl( unsigned short __ticks )
 {
 	#define T_COUNT(x) (( x * (FCLK / 1000000UL) )-3)/3)
