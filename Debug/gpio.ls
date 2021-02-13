@@ -36,13 +36,13 @@
  291  0026 85            	popw	x
  292                     ; 23 }
  295  0027 81            	ret
- 331                     ; 25 void Output2mhz_Init(sPin output)
+ 331                     ; 25 void InputInt_Init(sPin input)
  331                     ; 26 {
  332                     	switch	.text
- 333  0028               _Output2mhz_Init:
+ 333  0028               _InputInt_Init:
  335       00000000      OFST:	set	0
- 338                     ; 27 	GPIO_Init(output.Puerto, output.Pin, GPIO_MODE_OUT_PP_LOW_SLOW);
- 340  0028 4bc0          	push	#192
+ 338                     ; 27 	GPIO_Init(input.Puerto, input.Pin, GPIO_MODE_IN_PU_IT);
+ 340  0028 4b60          	push	#96
  341  002a 7b06          	ld	a,(OFST+6,sp)
  342  002c 88            	push	a
  343  002d 1e05          	ldw	x,(OFST+5,sp)
@@ -50,13 +50,13 @@
  346  0032 85            	popw	x
  347                     ; 28 }
  350  0033 81            	ret
- 386                     ; 30 void Output10mhz_Init(sPin output)
+ 386                     ; 30 void Output2mhz_Init(sPin output)
  386                     ; 31 {
  387                     	switch	.text
- 388  0034               _Output10mhz_Init:
+ 388  0034               _Output2mhz_Init:
  390       00000000      OFST:	set	0
- 393                     ; 32 	GPIO_Init(output.Puerto, output.Pin, GPIO_MODE_OUT_PP_LOW_FAST);
- 395  0034 4be0          	push	#224
+ 393                     ; 32 	GPIO_Init(output.Puerto, output.Pin, GPIO_MODE_OUT_PP_LOW_SLOW);
+ 395  0034 4bc0          	push	#192
  396  0036 7b06          	ld	a,(OFST+6,sp)
  397  0038 88            	push	a
  398  0039 1e05          	ldw	x,(OFST+5,sp)
@@ -64,70 +64,85 @@
  401  003e 85            	popw	x
  402                     ; 33 }
  405  003f 81            	ret
- 441                     ; 35 void Output_0(sPin output)
+ 441                     ; 35 void Output10mhz_Init(sPin output)
  441                     ; 36 {
  442                     	switch	.text
- 443  0040               _Output_0:
+ 443  0040               _Output10mhz_Init:
  445       00000000      OFST:	set	0
- 448                     ; 37 	GPIO_WriteLow(output.Puerto, output.Pin);
- 450  0040 7b05          	ld	a,(OFST+5,sp)
- 451  0042 88            	push	a
- 452  0043 1e04          	ldw	x,(OFST+4,sp)
- 453  0045 cd0000        	call	_GPIO_WriteLow
- 455  0048 84            	pop	a
- 456                     ; 38 }
- 459  0049 81            	ret
- 495                     ; 40 void Output_1(sPin output)
- 495                     ; 41 {
- 496                     	switch	.text
- 497  004a               _Output_1:
- 499       00000000      OFST:	set	0
- 502                     ; 42 	GPIO_WriteHigh(output.Puerto, output.Pin);
- 504  004a 7b05          	ld	a,(OFST+5,sp)
- 505  004c 88            	push	a
- 506  004d 1e04          	ldw	x,(OFST+4,sp)
- 507  004f cd0000        	call	_GPIO_WriteHigh
- 509  0052 84            	pop	a
- 510                     ; 43 }
- 513  0053 81            	ret
- 570                     ; 45 bool IsActive(sPin input)
- 570                     ; 46 {
- 571                     	switch	.text
- 572  0054               _IsActive:
- 574       00000000      OFST:	set	0
- 577                     ; 47 	if(GPIO_ReadInputPin(input.Puerto, input.Pin)) return 1;
- 579  0054 7b05          	ld	a,(OFST+5,sp)
- 580  0056 88            	push	a
- 581  0057 1e04          	ldw	x,(OFST+4,sp)
- 582  0059 cd0000        	call	_GPIO_ReadInputPin
- 584  005c 5b01          	addw	sp,#1
- 585  005e 4d            	tnz	a
- 586  005f 2703          	jreq	L552
- 589  0061 a601          	ld	a,#1
- 592  0063 81            	ret
- 593  0064               L552:
- 594                     ; 48 	else return 0;
- 596  0064 4f            	clr	a
- 599  0065 81            	ret
- 644                     	xdef	_IsActive
- 645                     	xdef	_Output_1
- 646                     	xdef	_Output_0
- 647                     	xdef	_Output10mhz_Init
- 648                     	xdef	_Output2mhz_Init
- 649                     	xdef	_Input_Init
- 650                     	xdef	_Pin_Init
- 651                     	switch	.ubsct
- 652  0000               _Pulsador:
- 653  0000 000000        	ds.b	3
- 654                     	xdef	_Pulsador
- 655  0003               _CCO:
- 656  0003 000000        	ds.b	3
- 657                     	xdef	_CCO
- 658  0006               _Led:
- 659  0006 000000        	ds.b	3
- 660                     	xdef	_Led
- 661                     	xref	_GPIO_ReadInputPin
- 662                     	xref	_GPIO_WriteLow
- 663                     	xref	_GPIO_WriteHigh
- 664                     	xref	_GPIO_Init
- 684                     	end
+ 448                     ; 37 	GPIO_Init(output.Puerto, output.Pin, GPIO_MODE_OUT_PP_LOW_FAST);
+ 450  0040 4be0          	push	#224
+ 451  0042 7b06          	ld	a,(OFST+6,sp)
+ 452  0044 88            	push	a
+ 453  0045 1e05          	ldw	x,(OFST+5,sp)
+ 454  0047 cd0000        	call	_GPIO_Init
+ 456  004a 85            	popw	x
+ 457                     ; 38 }
+ 460  004b 81            	ret
+ 496                     ; 40 void Output_0(sPin output)
+ 496                     ; 41 {
+ 497                     	switch	.text
+ 498  004c               _Output_0:
+ 500       00000000      OFST:	set	0
+ 503                     ; 42 	GPIO_WriteLow(output.Puerto, output.Pin);
+ 505  004c 7b05          	ld	a,(OFST+5,sp)
+ 506  004e 88            	push	a
+ 507  004f 1e04          	ldw	x,(OFST+4,sp)
+ 508  0051 cd0000        	call	_GPIO_WriteLow
+ 510  0054 84            	pop	a
+ 511                     ; 43 }
+ 514  0055 81            	ret
+ 550                     ; 45 void Output_1(sPin output)
+ 550                     ; 46 {
+ 551                     	switch	.text
+ 552  0056               _Output_1:
+ 554       00000000      OFST:	set	0
+ 557                     ; 47 	GPIO_WriteHigh(output.Puerto, output.Pin);
+ 559  0056 7b05          	ld	a,(OFST+5,sp)
+ 560  0058 88            	push	a
+ 561  0059 1e04          	ldw	x,(OFST+4,sp)
+ 562  005b cd0000        	call	_GPIO_WriteHigh
+ 564  005e 84            	pop	a
+ 565                     ; 48 }
+ 568  005f 81            	ret
+ 625                     ; 50 bool IsActive(sPin input)
+ 625                     ; 51 {
+ 626                     	switch	.text
+ 627  0060               _IsActive:
+ 629       00000000      OFST:	set	0
+ 632                     ; 52 	if(GPIO_ReadInputPin(input.Puerto, input.Pin)) return 1;
+ 634  0060 7b05          	ld	a,(OFST+5,sp)
+ 635  0062 88            	push	a
+ 636  0063 1e04          	ldw	x,(OFST+4,sp)
+ 637  0065 cd0000        	call	_GPIO_ReadInputPin
+ 639  0068 5b01          	addw	sp,#1
+ 640  006a 4d            	tnz	a
+ 641  006b 2703          	jreq	L372
+ 644  006d a601          	ld	a,#1
+ 647  006f 81            	ret
+ 648  0070               L372:
+ 649                     ; 53 	else return 0;
+ 651  0070 4f            	clr	a
+ 654  0071 81            	ret
+ 699                     	xdef	_IsActive
+ 700                     	xdef	_Output_1
+ 701                     	xdef	_Output_0
+ 702                     	xdef	_Output10mhz_Init
+ 703                     	xdef	_Output2mhz_Init
+ 704                     	xdef	_InputInt_Init
+ 705                     	xdef	_Input_Init
+ 706                     	xdef	_Pin_Init
+ 707                     	switch	.ubsct
+ 708  0000               _Pulsador:
+ 709  0000 000000        	ds.b	3
+ 710                     	xdef	_Pulsador
+ 711  0003               _CCO:
+ 712  0003 000000        	ds.b	3
+ 713                     	xdef	_CCO
+ 714  0006               _Led:
+ 715  0006 000000        	ds.b	3
+ 716                     	xdef	_Led
+ 717                     	xref	_GPIO_ReadInputPin
+ 718                     	xref	_GPIO_WriteLow
+ 719                     	xref	_GPIO_WriteHigh
+ 720                     	xref	_GPIO_Init
+ 740                     	end
