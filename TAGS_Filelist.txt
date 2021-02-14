@@ -1,3 +1,4 @@
+src\exti.c
 src\stm8s_exti.c
 stm8_interrupt_vector.c
 src\stm8s_itc.c
@@ -7,6 +8,7 @@ src\stm8s_gpio.c
 src\stm8s_clk.c
 src\clock.c
 main.c
+inc\exti.h
 inc\stm8s_exti.h
 inc\stm8s_itc.h
 inc\stm8s_it.h

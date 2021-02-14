@@ -6,19 +6,22 @@
 #include "gpio.h"
 #include "delay.h"
 #include "Clock.h"
+#include "Exti.h"
 						
 void DeInitAllGPIO(void);
-void EXTI_setup(void);
+//void EXTI_setup(void);
 
 
-main()
+int main()
 {
 	DeInitAllGPIO();
 	Pin_Init();
 	
 	Clock_HSI_Init(CLK_PRESCALER_HSIDIV1, CLK_PRESCALER_CPUDIV1);
 	EnableClockMirror(CLK_OUTPUT_CPU, CCO);
-	EXTI_setup();
+	//EXTI_setup();
+	Exti_Init(BotonIT, 1, EXTI_SENSITIVITY_RISE_FALL);
+	
 	
 	//Input_Init(Pulsador);
 	
@@ -42,16 +45,16 @@ void DeInitAllGPIO(void)
 	GPIO_DeInit(GPIOD);
 }
 
-void EXTI_setup(void)
+/*void EXTI_setup(void)
 {
 		GPIO_Init(GPIOD, GPIO_PIN_3, GPIO_MODE_IN_PU_IT);
     ITC_DeInit();
-    ITC_SetSoftwarePriority(ITC_IRQ_PORTD, ITC_PRIORITYLEVEL_0);
+    ITC_SetSoftwarePriority(ITC_IRQ_PORTD, ITC_PRIORITYLEVEL_1);
                 
     EXTI_DeInit();
     EXTI_SetExtIntSensitivity(EXTI_PORT_GPIOD, EXTI_SENSITIVITY_RISE_FALL);
     EXTI_SetTLISensitivity(EXTI_TLISENSITIVITY_FALL_ONLY);
                 
     enableInterrupts();
-}
+}*/
 

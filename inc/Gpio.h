@@ -36,6 +36,7 @@ typedef struct sPin
 extern sPin Led;
 extern sPin CCO;
 extern sPin Pulsador;
+extern sPin BotonIT;
 
 /**
 @brief Primera inicializacion de las distintas I/O a 

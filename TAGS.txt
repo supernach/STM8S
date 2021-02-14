@@ -398,7 +398,7 @@ CCMR3	inc\stm8s.h	624;"	member	struct:TIM1_struct
 CCMR3	inc\stm8s.h	837;"	member	struct:TIM2_struct
 CCMR4	inc\stm8s.h	625;"	member	struct:TIM1_struct
 CCMR_TIxDirect_Set	inc\stm8s.h	755;"	macro
-CCO	inc\gpio.h	13;"	variable
+CCO	src\gpio.c	6;"	variable
 CCOR	inc\stm8s.h	519;"	member	struct:CLK_struct
 CCR1H	inc\stm8s.h	1140;"	member	struct:TIM5_struct
 CCR1H	inc\stm8s.h	635;"	member	struct:TIM1_struct
@@ -691,7 +691,7 @@ CSR	inc\stm8s.h	442;"	member	struct:AWU_struct
 CSR	inc\stm8s.h	482;"	member	struct:BEEP_struct
 CSSR	inc\stm8s.h	518;"	member	struct:CLK_struct
 ChgBit	inc\stm8s.h	2792;"	macro
-Clock_HSI_Init	inc\clock.h	8;"	prototype	signature:(CLK_Prescaler_TypeDef fHsi, CLK_Prescaler_TypeDef fCpu)
+Clock_HSI_Init	inc\clock.h	35;"	prototype	signature:(CLK_Prescaler_TypeDef fHsi, CLK_Prescaler_TypeDef fCpu)
 Clock_HSI_Init	src\clock.c	5;"	function	signature:(CLK_Prescaler_TypeDef fHsi, CLK_Prescaler_TypeDef fCpu)
 ClrBit	inc\stm8s.h	2790;"	macro
 Config	inc\stm8s.h	2306;"	member	union:__anon23::__anon24	typeref:struct:__anon23::__anon24::__anon30
@@ -734,8 +734,8 @@ DRL	inc\stm8s.h	397;"	member	struct:ADC2_struct
 DTR	inc\stm8s.h	644;"	member	struct:TIM1_struct
 DUKR	inc\stm8s.h	1526;"	member	struct:FLASH_struct
 DeInitAllGPIO	main.c	10;"	prototype	file:	signature:(void)
-DeInitAllGPIO	main.c	35;"	function	signature:(void)
-DisableAllPeripherals	inc\clock.h	7;"	prototype	signature:(void)
+DeInitAllGPIO	main.c	38;"	function	signature:(void)
+DisableAllPeripherals	inc\clock.h	22;"	prototype	signature:(void)
 DisableAllPeripherals	src\clock.c	27;"	function	signature:(void)
 ECKR	inc\stm8s.h	511;"	member	struct:CLK_struct
 EEPROM	inc\stm8s.h	125;"	macro
@@ -769,6 +769,7 @@ EXTI_GetExtIntSensitivity	inc\stm8s_exti.h	124;"	prototype	signature:(EXTI_Port_
 EXTI_GetExtIntSensitivity	src\stm8s_exti.c	126;"	function	signature:(EXTI_Port_TypeDef Port)
 EXTI_GetTLISensitivity	inc\stm8s_exti.h	125;"	prototype	signature:(void)
 EXTI_GetTLISensitivity	src\stm8s_exti.c	162;"	function	signature:(void)
+EXTI_H	inc\exti.h	2;"	macro
 EXTI_PORTA_IRQHandler	inc\stm8s_it.h	51;"	prototype	signature:(void)
 EXTI_PORTB_IRQHandler	inc\stm8s_it.h	52;"	prototype	signature:(void)
 EXTI_PORTC_IRQHandler	inc\stm8s_it.h	53;"	prototype	signature:(void)
@@ -795,11 +796,13 @@ EXTI_TLISENSITIVITY_RISE_ONLY	inc\stm8s_exti.h	56;"	enumerator	enum:__anon2
 EXTI_TLISensitivity_TypeDef	inc\stm8s_exti.h	57;"	typedef	typeref:enum:__anon2
 EXTI_TypeDef	inc\stm8s.h	1478;"	typedef	typeref:struct:EXTI_struct
 EXTI_setup	main.c	11;"	prototype	file:	signature:(void)
-EXTI_setup	main.c	42;"	function	signature:(void)
+EXTI_setup	main.c	45;"	function	signature:(void)
 EXTI_struct	inc\stm8s.h	1473;"	struct
-EnableClockMirror	inc\clock.h	9;"	prototype	signature:(CLK_Output_TypeDef source, sPin pin)
+EnableClockMirror	inc\clock.h	44;"	prototype	signature:(CLK_Output_TypeDef source, sPin pin)
 EnableClockMirror	src\clock.c	39;"	function	signature:(CLK_Output_TypeDef source, sPin pin)
 ErrorStatus	inc\stm8s.h	238;"	typedef	typeref:enum:__anon22
+Exti_Init	inc\exti.h	16;"	prototype	signature:(sPin pin, uint8_t prioridad, uint8_t flanco)
+Exti_Init	src\exti.c	5;"	function	signature:(sPin pin, uint8_t prioridad, uint8_t flanco)
 F0R1	inc\stm8s.h	2230;"	member	struct:__anon23::__anon24::__anon27
 F0R2	inc\stm8s.h	2231;"	member	struct:__anon23::__anon24::__anon27
 F0R3	inc\stm8s.h	2232;"	member	struct:__anon23::__anon24::__anon27
@@ -1477,10 +1480,12 @@ IWDG_WriteAccess_Disable	inc\stm8s_iwdg.h	91;"	enumerator	enum:__anon56
 IWDG_WriteAccess_Enable	inc\stm8s_iwdg.h	90;"	enumerator	enum:__anon56
 IWDG_WriteAccess_TypeDef	inc\stm8s_iwdg.h	92;"	typedef	typeref:enum:__anon56
 IWDG_struct	inc\stm8s.h	1609;"	struct
-Input_Init	inc\gpio.h	16;"	prototype	signature:(sPin input)
-Input_Init	src\gpio.c	34;"	function	signature:(sPin input)
-IsActive	inc\gpio.h	21;"	prototype	signature:(sPin input)
-IsActive	src\gpio.c	59;"	function	signature:(sPin input)
+InputInt_Init	inc\gpio.h	63;"	prototype	signature:(sPin input)
+InputInt_Init	src\gpio.c	25;"	function	signature:(sPin input)
+Input_Init	inc\gpio.h	54;"	prototype	signature:(sPin input)
+Input_Init	src\gpio.c	20;"	function	signature:(sPin input)
+IsActive	inc\gpio.h	107;"	prototype	signature:(sPin input)
+IsActive	src\gpio.c	50;"	function	signature:(sPin input)
 KR	inc\stm8s.h	1611;"	member	struct:IWDG_struct
 LSI_FREQUENCY_MAX	inc\stm8s_awu.h	77;"	macro
 LSI_FREQUENCY_MAX	inc\stm8s_beep.h	64;"	macro
@@ -1489,7 +1494,7 @@ LSI_FREQUENCY_MIN	inc\stm8s_beep.h	63;"	macro
 LSI_VALUE	inc\stm8s.h	119;"	macro
 LTRH	inc\stm8s.h	331;"	member	struct:ADC1_struct
 LTRL	inc\stm8s.h	332;"	member	struct:ADC1_struct
-Led	inc\gpio.h	12;"	variable
+Led	src\gpio.c	4;"	variable
 MCR	inc\stm8s.h	2176;"	member	struct:__anon23
 MCSR	inc\stm8s.h	2189;"	member	struct:__anon23::__anon24::__anon25
 MDAR1	inc\stm8s.h	2195;"	member	struct:__anon23::__anon24::__anon25
@@ -1558,14 +1563,20 @@ OPTION_BYTE_START_PHYSICAL_ADDRESS	inc\stm8s_flash.h	73;"	macro
 OPT_BaseAddress	inc\stm8s.h	2556;"	macro
 OPT_TypeDef	inc\stm8s.h	1602;"	typedef	typeref:struct:OPT_struct
 OPT_struct	inc\stm8s.h	1584;"	struct
-Output10mhz_Init	inc\gpio.h	18;"	prototype	signature:(sPin output)
-Output10mhz_Init	src\gpio.c	44;"	function	signature:(sPin output)
-Output2mhz_Init	inc\gpio.h	17;"	prototype	signature:(sPin output)
-Output2mhz_Init	src\gpio.c	39;"	function	signature:(sPin output)
-Output_0	inc\gpio.h	19;"	prototype	signature:(sPin output)
-Output_0	src\gpio.c	49;"	function	signature:(sPin output)
-Output_1	inc\gpio.h	20;"	prototype	signature:(sPin output)
-Output_1	src\gpio.c	54;"	function	signature:(sPin output)
+ObtenerProridad	inc\exti.h	19;"	prototype	signature:(uint8_t prio)
+ObtenerProridad	src\exti.c	83;"	function	signature:(uint8_t prio)
+ObtenerPuertoExti	inc\exti.h	18;"	prototype	signature:(GPIO_TypeDef* puerto)
+ObtenerPuertoExti	src\exti.c	55;"	function	signature:(GPIO_TypeDef* puerto)
+ObtenerPuertoItc	inc\exti.h	17;"	prototype	signature:(GPIO_TypeDef* puerto)
+ObtenerPuertoItc	src\exti.c	26;"	function	signature:(GPIO_TypeDef* puerto)
+Output10mhz_Init	inc\gpio.h	81;"	prototype	signature:(sPin output)
+Output10mhz_Init	src\gpio.c	35;"	function	signature:(sPin output)
+Output2mhz_Init	inc\gpio.h	72;"	prototype	signature:(sPin output)
+Output2mhz_Init	src\gpio.c	30;"	function	signature:(sPin output)
+Output_0	inc\gpio.h	89;"	prototype	signature:(sPin output)
+Output_0	src\gpio.c	40;"	function	signature:(sPin output)
+Output_1	inc\gpio.h	97;"	prototype	signature:(sPin output)
+Output_1	src\gpio.c	45;"	function	signature:(sPin output)
 PCKENR1	inc\stm8s.h	517;"	member	struct:CLK_struct
 PCKENR2	inc\stm8s.h	520;"	member	struct:CLK_struct
 PR	inc\stm8s.h	1612;"	member	struct:IWDG_struct
@@ -1582,11 +1593,13 @@ PSCRL	inc\stm8s.h	631;"	member	struct:TIM1_struct
 PSR	inc\stm8s.h	2183;"	member	struct:__anon23
 PUKR	inc\stm8s.h	1524;"	member	struct:FLASH_struct
 Page	inc\stm8s.h	2327;"	member	struct:__anon23	typeref:union:__anon23::__anon24
-Pin	inc\gpio.h	9;"	member	struct:sPin
+Pin	inc\gpio.h	33;"	member	struct:sPin
+Pin_Init	inc\gpio.h	45;"	prototype	signature:(void)
+Pin_Init	src\gpio.c	8;"	function	signature:(void)
 PointerAttr	inc\stm8s.h	156;"	macro
 PointerAttr	inc\stm8s.h	160;"	macro
-Puerto	inc\gpio.h	8;"	member	struct:sPin
-Pulsador	inc\gpio.h	14;"	variable
+Puerto	inc\gpio.h	32;"	member	struct:sPin
+Pulsador	src\gpio.c	5;"	variable
 RCR	inc\stm8s.h	634;"	member	struct:TIM1_struct
 RECR	inc\stm8s.h	2296;"	member	struct:__anon23::__anon24::__anon30
 RESERVED	inc\stm8s.h	1982;"	member	struct:UART3_struct
@@ -2562,7 +2575,7 @@ TRISER	inc\stm8s.h	1343;"	member	struct:I2C_struct
 TRUE	inc\stm8s.h	231;"	enumerator	enum:__anon19
 TSR	inc\stm8s.h	2178;"	member	struct:__anon23
 TXCRCR	inc\stm8s.h	1705;"	member	struct:SPI_struct
-T_COUNT	inc\delay.h	8;"	macro
+T_COUNT	inc\delay.h	12;"	macro
 TxMailbox	inc\stm8s.h	2205;"	member	union:__anon23::__anon24	typeref:struct:__anon23::__anon24::__anon25
 U16_MAX	inc\stm8s.h	243;"	macro
 U32_MAX	inc\stm8s.h	246;"	macro
@@ -2942,7 +2955,7 @@ __STM8S_TIM2_H	inc\stm8s_tim2.h	30;"	macro
 __STM8S_TIM4_H	inc\stm8s_tim4.h	30;"	macro
 __STM8S_UART1_H	inc\stm8s_uart1.h	30;"	macro
 __STM8S_WWDG_H	inc\stm8s_wwdg.h	30;"	macro
-_delay_cycl	inc\delay.h	6;"	function	signature:( unsigned short __ticks )
+_delay_cycl	inc\delay.h	10;"	function	signature:( unsigned short __ticks )
 _stext	inc\stm8s_it.h	42;"	prototype	signature:(void)
 _vectab	stm8_interrupt_vector.c	14;"	variable
 assert_failed	inc\stm8s_conf.h	108;"	prototype	signature:(uint8_t* file, uint32_t line)
@@ -2958,6 +2971,7 @@ enableInterrupts	inc\stm8s.h	2735;"	macro
 halt	inc\stm8s.h	2723;"	macro
 halt	inc\stm8s.h	2732;"	macro
 halt	inc\stm8s.h	2742;"	macro
+iPrioridad	src\exti.c	3;"	variable
 int16_t	inc\stm8s.h	212;"	typedef
 int32_t	inc\stm8s.h	213;"	typedef
 int8_t	inc\stm8s.h	211;"	typedef
@@ -2975,8 +2989,8 @@ rim	inc\stm8s.h	2737;"	macro
 s16	inc\stm8s.h	223;"	typedef
 s32	inc\stm8s.h	222;"	typedef
 s8	inc\stm8s.h	224;"	typedef
-sPin	inc\gpio.h	10;"	typedef	typeref:struct:sPin
-sPin	inc\gpio.h	6;"	struct
+sPin	inc\gpio.h	30;"	struct
+sPin	inc\gpio.h	34;"	typedef	typeref:struct:sPin
 sim	inc\stm8s.h	2719;"	macro
 sim	inc\stm8s.h	2728;"	macro
 sim	inc\stm8s.h	2738;"	macro

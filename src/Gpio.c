@@ -4,6 +4,7 @@
 sPin Led;
 sPin Pulsador;
 sPin CCO;
+sPin BotonIT;
 
 void Pin_Init(void)
 {
@@ -15,6 +16,9 @@ void Pin_Init(void)
 
 	CCO.Puerto = GPIOC;
 	CCO.Pin = GPIO_PIN_4;
+	
+	BotonIT.Puerto = GPIOD;
+	BotonIT.Pin = GPIO_PIN_3;
 }
 
 void Input_Init(sPin input)
